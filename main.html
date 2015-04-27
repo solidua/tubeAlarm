@@ -1,0 +1,98 @@
+<!DOCTYPE html> 
+
+<html ng-app="alarmModule">
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="onOff.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>TubeAlarm</title>
+</head>
+<body>
+	<div class = "container" ng-controller="searchController as ctrl">
+		
+		<!--- header -->
+		<div class = "row navBar">
+			<div class="col-sm-8">
+				<h1 id="brand"> Tube<strong>Alarm</strong> </h1>
+			</div>
+			<div id="searchMargin" class="col-sm-4">
+				<div id="searchBox" class="input-group bottom-align">
+					<input type="text" class="form-control" ng-model="query" placeholder="wake up to your favorite video">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" ng-click="search()">GO</button>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row rowBack">
+
+			<!-- searchResults -->
+			<div class="col-sm-4 col-sm-push-8 search">
+				<br>
+				<div class="results div_hover" ng-repeat="vid in results" ng-click="select(vid.id)">
+					<div class="row">
+						<div class="col-xs-3 col-sm-4">
+							<img ng-src="{{vid.thumbnail}}" width="100%">
+						</div>
+						<div class="col-xs-9 col-sm-8">
+							<strong>{{vid.title}}</strong>
+							<br>
+							{{vid.author}}
+						</div>
+					</div>			
+				</div>
+			</div>
+
+			<div class="col-sm-8 col-sm-pull-4 vidBox">
+
+				<!-- alarm and time --> 
+				<div ng-controller="AlarmController as ctrl">
+					<div class="row"> 
+						<div class="col-sm-3 text-center">
+							<h3>
+								{{currentTime | date: 'HH:mm:ss'}}
+							</h3>
+						</div>
+						<div id="alarm" class="col-sm-3 text-center">
+							<div id="row">
+								<div class="btn-group-vertical" role="group">
+									{{alarmTime.aHr | dateString}}
+									<button class="btn btn-default" ng-click="incHr()"></button> 
+									<button class="btn btn-default" ng-click="decHr()"></button>
+								</div>
+
+								<div class="btn-group-vertical text-center" role="group">
+									{{alarmTime.aMin | dateString}}
+									<button class="btn btn-default" ng-click="incMin()"></button> 
+									<button class="btn btn-default" ng-click="decMin()"></button>
+								</div>
+							</div>
+						</div>
+						<div id="onOff" class="col-sm-3">
+							<br>
+							<div id="onOff" class="onoffswitch">
+   								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-model="alarmOn" unchecked>
+    							<label class="onoffswitch-label" for="myonoffswitch">
+        							<span class="onoffswitch-inner"></span>
+       								<span class="onoffswitch-switch"></span>
+  								</label>
+    						</div>
+    					</div>
+						<div class="col-sm-3 text-center">
+							<br>
+							<button type="button" class="btn btn-primary btn-lg" ng-click="setSnooze()">SNOOZE</button> 
+						</div>
+					</div>
+					<br>
+					<!-- video --> 
+					<div id="player" class="responsive-video"></div>
+				</div>
+			</div>
+		</div> 
+	</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

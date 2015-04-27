@@ -1,0 +1,49 @@
+.navBar{
+	background: #E87162;
+}
+
+.rowBack {
+	background: #FFFFFF;
+}
+
+.results{
+	position: relative;
+	cursor: pointer;
+	min-height: 90px;
+}
+
+.video-image{
+	float: left;
+	left: 10px;
+	position: absolute;
+	top: 10px;
+}
+.video-title{
+	padding-top: 5px;
+	left: 200;
+}
+.video-author{
+	padding-top: 5px;
+	left: 200;
+}
+
+.div_hover:hover{	
+	color: #E87162;
+}	
+
+#brand{
+	color: #FFFFFF;
+}
+
+#searchMargin{
+	margin-top: 22px;
+}
+
+#alarm{
+	font-size: 50px;
+}
+
+#onOff{
+	margin-left: auto;
+	margin-right: auto; 
+}
