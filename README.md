@@ -3,7 +3,7 @@ TubeAlarm
 
 A Youtube powered alarm clock built with AngularJs. Wake up to your favourite video 
 
-![JukeTube screenshot](https://github.com/solidua/tubeAlarm/raw/master/screenShot.png)
+![JukeTube screenshot](https://github.com/solidua/tubeAlarm/blob/master/screenShot1.png)
 
 ##Features
 * single page app 
